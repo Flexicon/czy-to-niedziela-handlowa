@@ -44,7 +44,12 @@
 
 <h1>Czy to niedziela handlowa?</h1>
 
-<p>Najbliższa niedziela: {formatDate(nearestSunday)}</p>
+<p>
+  Najbliższa niedziela: {formatDate(nearestSunday)}
+  {#if isSameDay(nearestSunday, today)}
+    <span>(dzisiaj)</span>
+  {/if}
+</p>
 <p>Handlowa? {isCommercialSundayText}</p>
 
 <details>
