@@ -13,8 +13,6 @@
   const nextSundayFromToday = nextSunday(today)
   const christmasDay = new Date(today.getFullYear(), DECEMBER, 25)
 
-  $: nearestSunday = isTodaySunday ? today : nextSundayFromToday
-
   const getSundaysForMonth = (month: number): Date[] => eachWeekendOfMonth(setMonth(today, month)).filter(isSunday)
   const getLastSundayForMonth = (month: number): Date => getSundaysForMonth(month).pop()!
 
@@ -34,8 +32,10 @@
     .sort((a, b) => a.getTime() - b.getTime())
 
   const isCommercialSunday = (date: Date): boolean => !!commercialSundays.find((d) => isSameDay(d, date))
-  const formatDate = (date: Date): string =>
-    date.toLocaleDateString('pl-PL', { day: 'numeric', month: 'long' })
+  const formatDate = (date: Date): string => date.toLocaleDateString('pl-PL', { day: 'numeric', month: 'long' })
+
+  $: nearestSunday = isTodaySunday ? today : nextSundayFromToday
+  $: isCommercialSundayText = isCommercialSunday(nearestSunday) ? 'tak ✅ 🤩' : 'nie ❌ 😢'
 </script>
 
 <svelte:head>
@@ -45,7 +45,7 @@
 <h1>Czy to niedziela handlowa?</h1>
 
 <p>Najbliższa niedziela: {formatDate(nearestSunday)}</p>
-<p>Handlowa? {isCommercialSunday(nearestSunday) ? 'tak 🤩' : 'nie 😢'}</p>
+<p>Handlowa? {isCommercialSundayText}</p>
 
 <details>
   <summary>Niedziele handlowe w 2022r.</summary>
