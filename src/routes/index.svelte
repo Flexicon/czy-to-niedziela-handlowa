@@ -1,3 +1,7 @@
+<script context="module">
+  export const prerender = false
+</script>
+
 <script lang="ts">
   import { eachWeekendOfMonth, isSameDay, isSunday, nextSunday, setMonth, sub } from 'date-fns'
   import { getEasterSunday } from '$utils/holidays'
