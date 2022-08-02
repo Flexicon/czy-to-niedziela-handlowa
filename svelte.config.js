@@ -8,10 +8,7 @@ const config = {
   preprocess: preprocess(),
 
   kit: {
-    adapter: adapter({
-      edge: true,
-      split: false,
-    }),
+    adapter: adapter(),
     alias: {
       $utils: 'src/utils',
     },
