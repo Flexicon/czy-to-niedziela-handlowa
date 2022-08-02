@@ -10,6 +10,7 @@ const config = {
   kit: {
     adapter: adapter({
       edge: true,
+      split: false,
     }),
     alias: {
       $utils: 'src/utils',
