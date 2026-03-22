@@ -38,8 +38,7 @@ czy-to-niedziela-handlowa/
 │   │   └── index.astro              # Single page (static HTML shell + client <script>)
 │   ├── lib/
 │   │   ├── holidays.ts              # getEasterSunday() — Anonymous Gregorian algorithm
-│   │   ├── commercial-sundays.ts    # getCommercialSundays(), isCommercialSunday(), formatDate(), getNearestSunday()
-│   │   └── date-utils.ts            # Re-exports from date-fns (isSunday, nextSunday, etc.)
+│   │   └── commercial-sundays.ts    # getCommercialSundays(), isCommercialSunday(), formatDate(), getNearestSunday()
 │   └── styles/
 │       └── water.css                 # Water.css dark theme, bundled locally
 ├── public/
