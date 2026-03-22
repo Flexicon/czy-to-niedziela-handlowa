@@ -1,0 +1,87 @@
+---
+import '../styles/water.css'
+---
+
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#161f27" />
+    <meta name="description" content="Sprawdź, czy najbliższa niedziela jest niedzielą handlową w Polsce." />
+    <title>Czy to niedziela handlowa?</title>
+    <style>
+      #content {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      #content.visible {
+        animation: fadeSlideIn 0.6s ease-in-out 0.2s forwards;
+      }
+
+      summary {
+        width: 100%;
+      }
+
+      @keyframes fadeSlideIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Czy to niedziela handlowa?</h1>
+
+    <div id="content">
+      <p>
+        Najbliższa niedziela: <span id="nearest-sunday-date"></span>
+        <span id="is-today"></span>
+      </p>
+      <p>Handlowa? <span id="answer-text"></span></p>
+
+      <details>
+        <summary id="sundays-list-heading"></summary>
+        <ul id="sundays-list"></ul>
+      </details>
+    </div>
+
+    <script>
+      import { isSameDay } from 'date-fns'
+      import { getCommercialSundays, isCommercialSunday, formatDate, getNearestSunday } from '../lib/commercial-sundays'
+
+      const today = new Date()
+      const year = today.getFullYear()
+      const nearestSunday = getNearestSunday(today)
+      const commercialSundays = getCommercialSundays(year)
+      const commercial = isCommercialSunday(nearestSunday, commercialSundays)
+
+      const contentEl = document.getElementById('content')!
+      const nearestSundayDateEl = document.getElementById('nearest-sunday-date')!
+      const isTodayEl = document.getElementById('is-today')!
+      const answerTextEl = document.getElementById('answer-text')!
+      const sundaysListHeadingEl = document.getElementById('sundays-list-heading')!
+      const sundaysListEl = document.getElementById('sundays-list')!
+
+      nearestSundayDateEl.textContent = formatDate(nearestSunday)
+      isTodayEl.textContent = isSameDay(nearestSunday, today) ? ' (dzisiaj)' : ''
+      answerTextEl.textContent = commercial ? 'tak ✅ 🤩' : 'nie ❌ 😢'
+
+      sundaysListHeadingEl.textContent = `Niedziele handlowe w ${year}r.`
+
+      sundaysListEl.innerHTML = commercialSundays
+        .map(
+          (sunday) =>
+            `<li>${formatDate(sunday)}${isSameDay(sunday, today) ? ' <span>(dzisiaj)</span>' : ''}</li>`,
+        )
+        .join('')
+
+      contentEl.classList.add('visible')
+    </script>
+  </body>
+</html>
