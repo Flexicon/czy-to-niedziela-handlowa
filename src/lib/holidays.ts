@@ -1,7 +1,6 @@
 /**
  * Ripped straight from StackOverflow because I'm lazy and this is more complicated than it needs to be.
- *
- * Source: https://stackoverflow.com/a/1284335/3112167
+ * @see https://stackoverflow.com/a/1284335/3112167
  */
 export const getEasterSunday = (Y: number): Date => {
   const C = Math.floor(Y / 100)
