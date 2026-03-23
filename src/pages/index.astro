@@ -6,12 +6,19 @@ import '../styles/water.css'
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
+    <link rel="canonical" href="https://czy-to-niedziela-handlowa.pl/" />
     <meta name="theme-color" content="#161f27" />
     <meta name="description" content="Sprawdź, czy najbliższa niedziela jest niedzielą handlową w Polsce." />
+    <meta property="og:title" content="Czy to niedziela handlowa?" />
+    <meta property="og:description" content="Sprawdź, czy najbliższa niedziela jest niedzielą handlową w Polsce." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://czy-to-niedziela-handlowa.pl/" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Czy to niedziela handlowa?" />
+    <meta name="twitter:description" content="Sprawdź, czy najbliższa niedziela jest niedzielą handlową w Polsce." />
     <title>Czy to niedziela handlowa?</title>
     <style>
       #content {
@@ -47,7 +54,7 @@ import '../styles/water.css'
 
       <details>
         <summary id="sundays-list-heading"></summary>
-        <ul id="sundays-list"></ul>
+        <ul id="sundays-list" role="list" aria-label="Lista niedziel handlowych"></ul>
       </details>
     </div>
 
