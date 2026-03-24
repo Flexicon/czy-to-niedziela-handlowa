@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "astro": "^6.0.8",
+    "astrojs-service-worker": "^2.0.0",
     "date-fns": "^4.1.0"
   },
   "devDependencies": {
