@@ -8,7 +8,7 @@ const AUGUST = 7
 const DECEMBER = 11
 
 const getSundaysForMonth = (year: number, month: number): Date[] =>
-  eachWeekendOfMonth(setMonth(new Date(year, 0, 1), month)).filter(isSunday)
+  eachWeekendOfMonth(setMonth(new Date(year, 0, 1), month)).filter((d) => isSunday(d))
 
 const getLastSundayForMonth = (year: number, month: number): Date => getSundaysForMonth(year, month).at(-1)!
 

@@ -6,16 +6,16 @@ publish = "dist"
 NODE_VERSION = "22"
 
 [[headers]]
-  for = "/_astro/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+for = "/_astro/*"
+[headers.values]
+Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/sw.js"
-  [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
+for = "/sw.js"
+[headers.values]
+Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
-  for = "/*"
-  [headers.values]
-    Service-Worker-Allowed = "/"
+for = "/*"
+[headers.values]
+Service-Worker-Allowed = "/"

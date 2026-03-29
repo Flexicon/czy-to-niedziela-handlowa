@@ -9,12 +9,13 @@
     "dev": "astro dev --host 0.0.0.0",
     "build": "astro build",
     "preview": "astro preview",
-    "check": "astro check",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "test": "vitest",
-    "test:run": "vitest run",
-    "astro": "astro"
+    "check": "vp check",
+    "lint": "vp lint .",
+    "format": "vp fmt .",
+    "test": "vp test",
+    "test:run": "vp test run",
+    "astro": "astro",
+    "prepare": "vp config"
   },
   "dependencies": {
     "astro": "^6.0.8",
@@ -25,14 +26,17 @@
     "@eslint/js": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.57.1",
     "@typescript-eslint/parser": "^8.57.1",
-    "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^1.6.0",
     "eslint-plugin-prettier": "^5.5.5",
     "globals": "^17.4.0",
-    "prettier": "^3.8.1",
-    "prettier-plugin-astro": "^0.14.1",
     "typescript-eslint": "^8.57.1",
-    "vitest": "^4.1.0"
+    "vite-plus": "latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+  },
+  "packageManager": "npm@11.12.1",
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
   }
 }

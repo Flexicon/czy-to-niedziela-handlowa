@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vite-plus/test'
 import { getEasterSunday } from '../src/lib/holidays'
 
 describe('getEasterSunday', () => {

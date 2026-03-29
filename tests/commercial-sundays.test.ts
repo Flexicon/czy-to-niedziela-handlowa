@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, it, expect } from 'vite-plus/test'
 import { getCommercialSundays, isCommercialSunday, getNearestSunday, formatDate } from '../src/lib/commercial-sundays'
 
 describe('getCommercialSundays', () => {
